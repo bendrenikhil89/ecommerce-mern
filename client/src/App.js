@@ -10,6 +10,7 @@ import History from './pages/user/History';
 import CompleteRegistration from './pages/auth/CompleteRegistration';
 import Navbar from './components/Navbar/Navbar';
 import UserRoute from './components/Routes/UserRoute';
+import AdminRoute from './components/Routes/AdminRoute';
 
 import {auth} from './firebase';
 import {useDispatch} from 'react-redux';
@@ -17,6 +18,7 @@ import Forgotpassword from './pages/auth/ForgotPassword';
 import {currentUser} from './utils/auth';
 import Password from './pages/user/Password';
 import WishList from './pages/user/Wishlist';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 
 function App() {
@@ -59,7 +61,8 @@ function App() {
       <Route exact path="/forgotpassword" component={Forgotpassword} />
       <UserRoute exact path="/user/history" component={History} /> 
       <UserRoute exact path="/user/password" component={Password} /> 
-      <UserRoute exact path="/user/wishlist" component={WishList} /> 
+      <UserRoute exact path="/user/wishlist" component={WishList} />
+      <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} /> 
     </Switch>
     </>
   );
