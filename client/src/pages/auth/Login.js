@@ -9,7 +9,7 @@ import {createOrUpdateUser} from '../../utils/auth';
 
 const Login = ({history}) => {
     const [email, setEmail] = useState('burns121@gmail.com');
-    const [password, setPassword] = useState('C00lBurns@1');
+    const [password, setPassword] = useState('C00lBurns');
     const [loading, setLoading] = useState(false);
     const {user} = useSelector(state => ({...state}));
     let dispatch = useDispatch();

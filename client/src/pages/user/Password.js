@@ -7,9 +7,27 @@ const Password = () => {
     const [password, setPassword] = useState();
     const [loading, setLoading] = useState(false);
 
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        await auth.currentUser.updatePassword(password)
+        .then(() => {
+            setLoading(false);
+            toast.success("Password updated successfully");
+        })
+        .catch(err => {
+            setLoading(false);
+            toast.error(err.message);
+        })
+    }
+
     const passwordUpdateForm = () => {
-        return <form>
-            form
+        return <form onSubmit={submitHandler}>
+            <div class="form-group">
+                <label>Your Password</label>
+                <input type="password" onChange={e => setPassword(e.target.value)} value={password} className="form-control" placeholder="Enter new password" disabled={loading} />
+                <button className="btn btn-primary" disabled={!password || password.length < 6 || loading}>Submit</button>
+            </div>
         </form>
     }
 
