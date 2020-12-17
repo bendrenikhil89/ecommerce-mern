@@ -36,7 +36,7 @@ exports.update = async(req, res) => {
 exports.remove = async(req, res) => {
     try{
         let category = await Category.findOneAndDelete({slug: req.params.slug});
-        res.json("Category is deleted");
+        res.json(category);
     }
     catch(err){
         res.status(400).send("Create category failed")
